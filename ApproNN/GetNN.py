@@ -74,6 +74,7 @@ for epoch in range(1):
     #optimizer.zero_grad()
     loss.backward()
     #optimizer.step()
+torch.save(net.state_dict(),'ApproxNN_params.pkl')  # save the approx_ed net
 
 print('--------------------------------------After--------------------------------------')
 params = net.state_dict()

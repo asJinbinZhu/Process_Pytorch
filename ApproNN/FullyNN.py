@@ -42,7 +42,7 @@ params = net.state_dict()
 for k,v in params.items():
     print(k,v)
 
-torch.save(net.state_dict(),'FullyNN_params.pkl')  # entire net
+torch.save(net.state_dict(),'FullyNN_params.pkl')  # save the original net
 
 '''
 test_data = Variable(torch.Tensor([[4.0]]))
