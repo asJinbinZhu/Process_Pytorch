@@ -54,7 +54,6 @@ class Net(torch.nn.Module):
 net = Net(n_features=1,n_hidden=3,n_output=1)
 net.load_state_dict(torch.load('FullyNN_params.pkl'))
 
-
 print(net)
 # Got it
 print('--------------------------------------Before--------------------------------------')
