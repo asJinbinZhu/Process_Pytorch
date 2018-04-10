@@ -49,4 +49,3 @@ test_data = Variable(torch.Tensor([[4.0]]))
 net2 = torch.load('FullyNN.pkl')
 print("Test: ",net2(test_data))
 '''
-
