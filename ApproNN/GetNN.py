@@ -31,6 +31,7 @@ def handle_variable_hidden_hook(grade):
 def handle_variable_predict_hook(grade):
     print('***********predict_hook***************')
     print('grade: ',grade)
+    # modify
     #grade.data[0] = 0
     print('**************************')
 
