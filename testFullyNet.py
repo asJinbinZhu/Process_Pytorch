@@ -56,6 +56,22 @@ print("Test: ",net2(test_data))
 
 
 '''
+Variable containing:
+-1.0000
+-0.5000
+ 0.0000
+ 0.5000
+ 1.0000
+[torch.FloatTensor of size 5x1]
+
+Variable containing:
+ 1.1515
+ 0.3059
+ 0.0806
+ 0.3969
+ 1.0059
+[torch.FloatTensor of size 5x1]
+
 Net(
   (hidden_1): Linear(in_features=1, out_features=3, bias=True)
   (hidden_2): Linear(in_features=3, out_features=4, bias=True)
