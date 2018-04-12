@@ -8,6 +8,30 @@ import torch.nn.functional as F
 
 torch.manual_seed(1)
 
+def handle_variable_hidden_hook(grade):
+    print('***********hidden_hook***************')
+    grade.data[0][2] = 0.1000
+    print('grade: ',grade)
+    #grade.data[0] = 0
+    print('**************************')
+
+def handle_variable_predict_hook(grade):
+    print('***********predict_hook***************')
+    print('grade: ',grade)
+    # modify
+    #grade.data[0] = 0
+    print('**************************')
+
+def handle_variable_weight_hidden_hook(grade):
+    print('***********hidden_weight_hook***************')
+    #grade.data[0][2] = 0.1000
+    grade.data[0][0] = 0.0
+    grade.data[0][2] = 0.0
+    #print('grade: ',grade.data[0][1])
+    #grade.data[0] = 0
+    print('**************************')
+
+
 x = torch.unsqueeze(torch.linspace(-1,1,5),dim=1) # x data(Tensor), shape(100,1)
 y= x.pow(2)+0.2*torch.rand(x.size())
 
@@ -23,17 +47,36 @@ class Net(torch.nn.Module):
         self.predict = torch.nn.Linear(n_hidden_2,n_output)
 
     def forward(self, x):
-        hidden_layer_1 = F.relu(self.hidden_1(x))
-        hidden_layer_2 = F.relu(self.hidden_2(hidden_layer_1))
+        hidden_layer_1 = F.sigmoid(self.hidden_1(x))
+        #print('hidden_layer_1 value: ', hidden_layer_1)  # output of hidden layer
+        #hidden_layer_1.register_hook(handle_variable_hidden_hook)  # gradient of direct hidden's output
+        #print("hidden_layer_1.weight ",self.hidden_1.weight)
+        #self.hidden_1.weight.register_hook(handle_variable_weight_hidden_hook)
+
+        hidden_layer_2 = F.sigmoid(self.hidden_2(hidden_layer_1))
+        #print('hidden_layer_2 value: ', hidden_layer_2)  # output of hidden layer
+        #hidden_layer_2.register_hook(handle_variable_hidden_hook)  # gradient of direct hidden's output
+        #self.predict.weight.register_hook(handle_variable_weight_hidden_hook)
+
         direct_layer = self.predict(hidden_layer_2)
+        #print('predict value: ', direct_layer)  # output of direct layer
+        #direct_layer.register_hook(handle_variable_predict_hook)  # gradient of direct layer's output
+        self.predict.weight.register_hook(handle_variable_weight_hidden_hook)
+
         return direct_layer
 
 net = Net(n_features=1,n_hidden_1=3,n_hidden_2=4,n_output=1)
 
+print('******************************Befor training*****************')
+print(net)
+params = net.state_dict()
+for k,v in params.items():
+    print(k,v)
+
 criterion = torch.nn.MSELoss()
 optimizer = torch.optim.SGD(net.parameters(),lr=0.5)
 
-for epoch in range(500):
+for epoch in range(1):
     pre = net(x)
     loss = criterion(pre,y)
     #print('loss: ',loss)
@@ -41,6 +84,7 @@ for epoch in range(500):
     loss.backward()
     optimizer.step()
 
+print('******************************After training*****************')
 print(net)
 params = net.state_dict()
 for k,v in params.items():
