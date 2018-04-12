@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61445892-745e-4918-9c44-290e8700fc9b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/testPython/testEnumerate.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/testPython/testMNist.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/RNN/RNNClassifier.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/RNN/RNNRegression.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,7 +18,7 @@
       <file leaf-file-name="testFullyNet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testFullyNet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
+            <state relative-caret-position="800">
               <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
               <folding />
             </state>
@@ -29,20 +29,52 @@
         <entry file="file://$PROJECT_DIR$/testPython/testEnumerate.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="128">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testMNist.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="testMNist.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testPython/testMNist.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="192">
+              <caret line="6" column="13" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="15" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RNNClassifier.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RNN/RNNClassifier.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RNNRegression.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/RNN/RNNRegression.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testRNN.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RNN/testRNN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1440">
+              <caret line="73" column="24" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="73" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -101,6 +133,8 @@
         <option value="$PROJECT_DIR$/testFullyNet.py" />
         <option value="$PROJECT_DIR$/testPython/testEnumerate.py" />
         <option value="$PROJECT_DIR$/testPython/testMNist.py" />
+        <option value="$PROJECT_DIR$/RNN/RNNClassifier.py" />
+        <option value="$PROJECT_DIR$/RNN/RNNRegression.py" />
       </list>
     </option>
   </component>
@@ -126,7 +160,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -137,12 +170,13 @@
             <path>
               <item name="Process_Pytorch" type="b2602c69:ProjectViewProjectNode" />
               <item name="Process_Pytorch" type="462c0819:PsiDirectoryNode" />
-              <item name="testPython" type="462c0819:PsiDirectoryNode" />
+              <item name="RNN" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -161,7 +195,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.testMNist">
+  <component name="RunManager" selected="Python.RNNClassifier">
     <configuration name="GetNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -180,19 +214,19 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="injectErr" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="RNNClassifier" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ApproNN" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RNN" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Process_Pytorch" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ApproNN/injectErr.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RNN/RNNClassifier.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -254,18 +288,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.GetNN" />
-      <item index="1" class="java.lang.String" itemvalue="Python.injectErr" />
-      <item index="2" class="java.lang.String" itemvalue="Python.testFullyNet" />
-      <item index="3" class="java.lang.String" itemvalue="Python.testEnumerate" />
-      <item index="4" class="java.lang.String" itemvalue="Python.testMNist" />
+      <item index="1" class="java.lang.String" itemvalue="Python.testFullyNet" />
+      <item index="2" class="java.lang.String" itemvalue="Python.testEnumerate" />
+      <item index="3" class="java.lang.String" itemvalue="Python.testMNist" />
+      <item index="4" class="java.lang.String" itemvalue="Python.RNNClassifier" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.testMNist" />
-        <item index="1" class="java.lang.String" itemvalue="Python.testEnumerate" />
-        <item index="2" class="java.lang.String" itemvalue="Python.testFullyNet" />
-        <item index="3" class="java.lang.String" itemvalue="Python.GetNN" />
-        <item index="4" class="java.lang.String" itemvalue="Python.injectErr" />
+        <item index="0" class="java.lang.String" itemvalue="Python.RNNClassifier" />
+        <item index="1" class="java.lang.String" itemvalue="Python.testMNist" />
+        <item index="2" class="java.lang.String" itemvalue="Python.testEnumerate" />
+        <item index="3" class="java.lang.String" itemvalue="Python.testFullyNet" />
+        <item index="4" class="java.lang.String" itemvalue="Python.GetNN" />
       </list>
     </recent_temporary>
   </component>
@@ -292,7 +326,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25061324" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42927864" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4540311" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -318,20 +352,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/About_Hook_Module_Backward.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1152">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AboutHook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1152">
-          <caret line="36" column="7" lean-forward="false" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/About_Hook_in_FullyConnectedNet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -606,13 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RNN/testRNN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1135">
-          <caret line="74" column="3" lean-forward="false" selection-start-line="74" selection-start-column="3" selection-end-line="74" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ApproNN/injectErr.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -651,7 +664,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testFullyNet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
+        <state relative-caret-position="800">
           <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
           <folding />
         </state>
@@ -660,18 +673,44 @@
     <entry file="file://$PROJECT_DIR$/testPython/testEnumerate.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testPython/testMNist.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="192">
+          <caret line="6" column="13" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="15" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RNN/testRNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="73" column="24" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="73" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RNN/RNNClassifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RNN/RNNRegression.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
