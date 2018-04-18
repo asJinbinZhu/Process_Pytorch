@@ -23,10 +23,12 @@ def handle_variable_predict_hook(grade):
     print('**************************')
 
 def handle_variable_weight_hidden_hook(grade):
-    print('***********hidden_weight_hook***************')
+    print('***********handle_variable_weight_hidden_hook***************')
+    print('+++++++++++handle_variable_weight_hidden_hook+++++++++++++++')
+    print(grade)
     #grade.data[0][2] = 0.1000
-    grade.data[0][0] = 0.0
-    grade.data[0][2] = 0.0
+    #grade.data[0][0] = 0.0
+    #grade.data[0][2] = 0.0
     #print('grade: ',grade.data[0][1])
     #grade.data[0] = 0
     print('**************************')
@@ -67,7 +69,7 @@ class Net(torch.nn.Module):
 
 net = Net(n_features=1,n_hidden_1=3,n_hidden_2=4,n_output=1)
 
-print('******************************Befor training*****************')
+print('******************************Before training*****************')
 print(net)
 params = net.state_dict()
 for k,v in params.items():
