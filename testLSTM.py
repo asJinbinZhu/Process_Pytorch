@@ -22,19 +22,6 @@ class RNN(torch.nn.Module):
 
 net = RNN(2,3,1,2)
 
-criterion = torch.nn.CrossEntropyLoss()
-optimizer = torch.optim.Adam(net.parameters(),lr=0.01)
-
-test_data = Variable(torch.randn(2,1))
-target_data = Variable(torch.rand(2,1))
-for epoch in range(1):
-    pre = net(test_data)
-    loss = criterion(pre,target_data)
-    #print('loss: ',loss)
-    #optimizer.zero_grad()
-    loss.backward()
-    #optimizer.step()
-
 print(net)
 params = net.state_dict()
 for k,v in params.items():
