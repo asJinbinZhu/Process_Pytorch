@@ -21,7 +21,7 @@ print(train_data.train_data.size())
 print(train_data.train_labels.size())
 plt.imshow(train_data.train_data[0].numpy(),cmap='gray')
 plt.title('%i'%train_data.train_labels[0])
-plt.show()
+#plt.show()
 
 train_loader = Data.DataLoader(dataset=train_data,batch_size=BATCH_SIZE,shuffle=True)
 
@@ -33,6 +33,14 @@ test_data = dsets.MNIST(
 test_x = Variable(test_data.test_data,volatile=True).type(torch.FloatTensor)[:100]/255
 test_y = test_data.test_labels.numpy().squeeze()[:100]
 
+def handle_variable_hidden_hook(grade):
+    print('***********hidden_hook***************')
+    grade.data[0][0] = 0.0
+    grade.data[11][1] = 0.0
+    print('grade: ',grade)
+    #grade.data[0] = 0
+    print('**************************')
+
 class RNN(torch.nn.Module):
     def __init__(self):
         super(RNN,self).__init__()
@@ -40,12 +48,13 @@ class RNN(torch.nn.Module):
             input_size=28,
             hidden_size=64,
             num_layers=1,
-            batch_first=True,
+            batch_first=True
         )
         self.out = torch.nn.Linear(64,10)
 
     def forward(self, x):
         r_out,(h_n,h_c)=self.rnn(x,None)
+        r_out.register_hook(handle_variable_hidden_hook)
         out = self.out(r_out[:,-1,:])
         return out
 
