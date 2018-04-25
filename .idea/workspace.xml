@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61445892-745e-4918-9c44-290e8700fc9b" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/ApproNN/FullyNN.py" afterPath="$PROJECT_DIR$/ApproNN/FullyNN.py" />
+      <change beforePath="$PROJECT_DIR$/ApproNN/FullyNN_params.pkl" afterPath="$PROJECT_DIR$/ApproNN/FullyNN_params.pkl" />
       <change beforePath="$PROJECT_DIR$/RNN/SimpleLSTM.py" afterPath="$PROJECT_DIR$/RNN/SimpleLSTM.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,11 +15,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="SimpleLSTM.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SimpleLSTM.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RNN/SimpleLSTM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="880">
-              <caret line="701" column="26" lean-forward="false" selection-start-line="701" selection-start-column="26" selection-end-line="701" selection-end-column="26" />
+            <state relative-caret-position="896">
+              <caret line="68" column="26" lean-forward="true" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FullyNN.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ApproNN/FullyNN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1050">
+              <caret line="75" column="29" lean-forward="false" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -95,7 +107,6 @@
         <option value="$PROJECT_DIR$/AboutCNN.py" />
         <option value="$PROJECT_DIR$/RNN/testRNN.py" />
         <option value="$PROJECT_DIR$/ApproNN/GetNN.py" />
-        <option value="$PROJECT_DIR$/ApproNN/FullyNN.py" />
         <option value="$PROJECT_DIR$/testPython/testEnumerate.py" />
         <option value="$PROJECT_DIR$/testPython/testMNist.py" />
         <option value="$PROJECT_DIR$/RNN/RNNRegression.py" />
@@ -135,6 +146,7 @@
         <option value="$PROJECT_DIR$/RNN/LSTM_FROM_issue.py" />
         <option value="$PROJECT_DIR$/NLP/BasicLSTM.py" />
         <option value="$PROJECT_DIR$/RNN/SimpleLSTM.py" />
+        <option value="$PROJECT_DIR$/ApproNN/FullyNN.py" />
       </list>
     </option>
   </component>
@@ -173,11 +185,6 @@
               <item name="Process_Pytorch" type="462c0819:PsiDirectoryNode" />
               <item name="ApproNN" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Process_Pytorch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Process_Pytorch" type="462c0819:PsiDirectoryNode" />
-              <item name="NLP" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -207,20 +214,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.SimpleLSTM">
-    <configuration name="BasicLSTM" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.FullyNN">
+    <configuration name="FullyNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NLP" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ApproNN" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Process_Pytorch" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NLP/BasicLSTM.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ApproNN/FullyNN.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -300,18 +307,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.SimpleLSTM" />
-      <item index="1" class="java.lang.String" itemvalue="Python.BasicLSTM" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Lstm_Handle" />
-      <item index="3" class="java.lang.String" itemvalue="Python._004nameClassifier" />
-      <item index="4" class="java.lang.String" itemvalue="Python.LSTM_FROM_issue" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Lstm_Handle" />
+      <item index="2" class="java.lang.String" itemvalue="Python._004nameClassifier" />
+      <item index="3" class="java.lang.String" itemvalue="Python.LSTM_FROM_issue" />
+      <item index="4" class="java.lang.String" itemvalue="Python.FullyNN" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.SimpleLSTM" />
-        <item index="1" class="java.lang.String" itemvalue="Python._004nameClassifier" />
-        <item index="2" class="java.lang.String" itemvalue="Python.LSTM_FROM_issue" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Lstm_Handle" />
-        <item index="4" class="java.lang.String" itemvalue="Python.BasicLSTM" />
+        <item index="0" class="java.lang.String" itemvalue="Python.FullyNN" />
+        <item index="1" class="java.lang.String" itemvalue="Python.SimpleLSTM" />
+        <item index="2" class="java.lang.String" itemvalue="Python._004nameClassifier" />
+        <item index="3" class="java.lang.String" itemvalue="Python.LSTM_FROM_issue" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Lstm_Handle" />
       </list>
     </recent_temporary>
   </component>
@@ -338,7 +345,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22158626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27298445" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15275814" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -410,13 +417,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="12" column="1" lean-forward="false" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApproNN/FullyNN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -668,8 +668,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RNN/SimpleLSTM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="701" column="26" lean-forward="false" selection-start-line="701" selection-start-column="26" selection-end-line="701" selection-end-column="26" />
+        <state relative-caret-position="896">
+          <caret line="68" column="26" lean-forward="true" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApproNN/FullyNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="75" column="29" lean-forward="false" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
           <folding />
         </state>
       </provider>

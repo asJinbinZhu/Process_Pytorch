@@ -59,8 +59,8 @@ class LSTMTagger(torch.nn.Module):
     def forward(self, x):
         h, c = self.init_hidden()
         #print('h: ', h, 'c: ', c)
-        self.lstm.register_forward_hook(handle_forward_hook)
-        #self.lstm.register_backward_hook(handle_backward_hook)
+        #self.lstm.register_forward_hook(handle_forward_hook)
+        self.lstm.register_backward_hook(handle_backward_hook)
         out, (h, c) = self.lstm(x, (h, c))
 
         #print('OUT: ', out, 'h: ', h, 'c: ', c)
@@ -69,7 +69,7 @@ class LSTMTagger(torch.nn.Module):
         last_out = out[-1]
         return last_out
 
-model = LSTMTagger(in_size, classes_no, 3)
+model = LSTMTagger(in_size, classes_no, 1)
 #model.register_backward_hook(handle_backward_hook)
 
 '''

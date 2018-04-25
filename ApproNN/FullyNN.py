@@ -49,3 +49,29 @@ test_data = Variable(torch.Tensor([[4.0]]))
 net2 = torch.load('FullyNN.pkl')
 print("Test: ",net2(test_data))
 '''
+'''
+Net(
+  (hidden): Linear(in_features=1, out_features=3, bias=True)
+  (predict): Linear(in_features=3, out_features=1, bias=True)
+)
+hidden.weight 
+ 1.0860
+-1.2707
+ 0.5386
+[torch.FloatTensor of size 3x1]
+
+hidden.bias 
+-0.3009
+-0.4270
+ 0.1734
+[torch.FloatTensor of size 3]
+
+predict.weight 
+ 0.9724  1.3310  0.3006
+[torch.FloatTensor of size 1x3]
+
+predict.bias 
+1.00000e-02 *
+  2.8504
+[torch.FloatTensor of size 1]
+'''
