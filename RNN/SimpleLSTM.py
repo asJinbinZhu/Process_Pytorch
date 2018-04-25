@@ -10,7 +10,7 @@ classes_no = 3
 
 input_seq = [Variable(torch.randn(time_steps,batch_size,in_size))]
 target = Variable(torch.LongTensor(batch_size).random_(0,classes_no-1))
-#print('input: ', input_seq, 'output: ', target)
+print('input: ', input_seq, 'output: ', target)
 
 def handle_forward_hook(module,input,output):
     print('***********forward_hook***************')
@@ -89,6 +89,11 @@ for epoch in range(1):
         optimizer.step()
 
 '''
+input:  [Variable containing:
+(0 ,.,.) = 
+  0.6614  0.2669
+[torch.FloatTensor of size 1x1x2]
+
 LSTMTagger(
   (lstm): LSTM(2, 3)
 )

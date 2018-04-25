@@ -2,51 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61445892-745e-4918-9c44-290e8700fc9b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/BasicLSTM.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/Lstm_Handle.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/TextClassification/SentenceClassification/DataLoader.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/TextClassification/SentenceClassification/SentenceClassifier.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/TextClassification/SentenceClassification/datasets/IMDB/imdb.neg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/TextClassification/SentenceClassification/datasets/IMDB/imdb.pos" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/TextClassification/SentenceClassification/datasets/IMDB/rt_critics.test" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/TextClassification/SentenceClassification/datasets/MR/rt-polarity.neg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/TextClassification/SentenceClassification/datasets/MR/rt-polarity.pos" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/TextClassification/SentenceClassification/datasets/QC/TREC_10.label" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/TextClassification/SentenceClassification/datasets/QC/train_5500.label" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/TextClassification/SentenceClassification/datasets/STS/testdata.manual.2009.06.14.csv.gz" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/TextClassification/SentenceClassification/datasets/STS/training.1600000.processed.noemoticon.csv.gz" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/_000intorductionLstm.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/_001dataloader.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/_001torchtext.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/_003partofSpeechTagging.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/_004nameClassifier.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/eng-fra.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/Arabic.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/Chinese.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/Czech.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/Dutch.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/English.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/French.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/German.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/Greek.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/Irish.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/Italian.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/Japanese.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/Korean.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/Polish.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/Portuguese.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/Russian.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/Scottish.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/Spanish.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/NLP/data/names/Vietnamese.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/intorduction_to_pytorch/_000pytorchFuns.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test_child.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test_lstm_tagger.py" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/NLP/_001_wordEmbedding.py" afterPath="$PROJECT_DIR$/NLP/_001_wordEmbedding.py" />
-      <change beforePath="$PROJECT_DIR$/RNN/LSTM_FROM_issue.py" afterPath="$PROJECT_DIR$/RNN/LSTM_FROM_issue.py" />
       <change beforePath="$PROJECT_DIR$/RNN/SimpleLSTM.py" afterPath="$PROJECT_DIR$/RNN/SimpleLSTM.py" />
-      <change beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -60,8 +16,8 @@
       <file leaf-file-name="SimpleLSTM.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RNN/SimpleLSTM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="601">
-              <caret line="152" column="30" lean-forward="false" selection-start-line="152" selection-start-column="30" selection-end-line="152" selection-end-column="30" />
+            <state relative-caret-position="480">
+              <caret line="94" column="33" lean-forward="false" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -382,7 +338,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22158626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47029704" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3797737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -712,8 +668,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RNN/SimpleLSTM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="152" column="30" lean-forward="false" selection-start-line="152" selection-start-column="30" selection-end-line="152" selection-end-column="30" />
+        <state relative-caret-position="480">
+          <caret line="94" column="33" lean-forward="false" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
           <folding />
         </state>
       </provider>
