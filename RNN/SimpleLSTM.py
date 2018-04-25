@@ -10,7 +10,7 @@ classes_no = 3
 
 input_seq = [Variable(torch.randn(time_steps,batch_size,in_size))]
 target = Variable(torch.LongTensor(batch_size).random_(0,classes_no-1))
-print('input: ', input_seq, 'output: ', target)
+#print('input: ', input_seq, 'output: ', target)
 
 def handle_forward_hook(module,input,output):
     print('***********forward_hook***************')
@@ -58,11 +58,12 @@ class LSTMTagger(torch.nn.Module):
 
     def forward(self, x):
         h, c = self.init_hidden()
-        self.lstm.register_forward_hook(handle_forward_hook)
+        print('h: ', h, 'c: ', c)
+        #self.lstm.register_forward_hook(handle_forward_hook)
         #self.lstm.register_backward_hook(handle_backward_hook)
         out, (h, c) = self.lstm(x, (h, c))
 
-        print('OUT: ', out, 'h: ', h, 'c: ', c)
+        #print('OUT: ', out, 'h: ', h, 'c: ', c)
         #out.register_hook(handle_variable_hidden_hook)
         # out.register_hook(handle_variable_hidden_hook)
         last_out = out[-1]
@@ -413,6 +414,22 @@ OUT:  Variable containing:
 
 (1 ,.,.) = 
   0.2575  0.4253  0.2852
+[torch.FloatTensor of size 2x1x3]
+
+
+h:  Variable containing:
+(0 ,.,.) = 
+ -0.9315 -1.8460  0.5781
+
+(1 ,.,.) = 
+ -0.9483  0.0943  0.6352
+[torch.FloatTensor of size 2x1x3]
+ c:  Variable containing:
+(0 ,.,.) = 
+ -0.6054 -0.2838  1.0525
+
+(1 ,.,.) = 
+  0.2865  1.4871  1.3805
 [torch.FloatTensor of size 2x1x3]
 
 
