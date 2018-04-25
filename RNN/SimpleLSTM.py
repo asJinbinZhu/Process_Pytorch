@@ -59,10 +59,10 @@ class LSTMTagger(torch.nn.Module):
     def forward(self, x):
         h, c = self.init_hidden()
         #self.lstm.register_forward_hook(handle_forward_hook)
-        self.lstm.register_backward_hook(handle_backward_hook)
+        #self.lstm.register_backward_hook(handle_backward_hook)
         out, (h, c) = self.lstm(x, (h, c))
 
-        #print('OUT: ', out)
+        print('OUT: ', out, 'h: ', h, 'c: ', c)
         #out.register_hook(handle_variable_hidden_hook)
         # out.register_hook(handle_variable_hidden_hook)
         last_out = out[-1]
@@ -209,4 +209,17 @@ Grad Output (Variable containing:
 [torch.FloatTensor of size 1x1x3]
 ,)
 **************************
+
+OUT:  Variable containing:
+(0 ,.,.) = 
+ -0.0520  0.0958 -0.4176
+[torch.FloatTensor of size 1x1x3]
+ h:  Variable containing:
+(0 ,.,.) = 
+ -0.0520  0.0958 -0.4176
+[torch.FloatTensor of size 1x1x3]
+ c:  Variable containing:
+(0 ,.,.) = 
+ -0.1296  0.1391 -1.1395
+[torch.FloatTensor of size 1x1x3]
 '''
