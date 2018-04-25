@@ -2,6 +2,37 @@ import torch
 from torch.autograd import Variable
 import torch.nn.functional as F
 
+
+def handle_forward_hook(module,input,output):
+    print('***********forward_hook***************')
+    #print(module)
+    print('Forward Input', input)
+    print('Output Output', output)    #output[0] - out; output[1][0] - h; output[1][1] - c
+    print('**************************')
+
+def handle_backward_hook(module,input,output):
+    print('***********backward_hook***************')
+    print(module)
+    print('Grad Input',input)
+    print('Grad Output',output)
+    print('**************************')
+
+def handle_variable_hidden_hook(grade):
+    print('***********hidden_hook***************')
+    #grade.data[0][0] = 0.0
+    #grade.data[0][1] = 0.0
+    print('grade: ',grade)
+    #grade.data[0] = 0
+    print('**************************')
+
+def handle_variable_predict_hook(grade):
+    print('***********predict_hook***************')
+    print('grade: ',grade)
+    # modify
+    #grade.data[0] = 0
+    print('**************************')
+
+
 training_data = [
     ("The dog ate the apple".split(), ["DET", "NN", "V", "DET", "NN"]),
     ("Everybody read the book".split(), ["NN", "V", "DET", "NN"])
@@ -37,7 +68,11 @@ class LSTMTagger(torch.nn.Module):
         super(LSTMTagger, self).__init__()
         self.word_emebdding = torch.nn.Embedding(n_word, word_dim)
         self.char_lstm = CharLSTM(n_char, char_dim, char_hidden)
+        #self.char_lstm.register_backward_hook(handle_backward_hook)
+
         self.word_lstm = torch.nn.LSTM(word_dim+char_hidden, word_hidden, batch_first=True)
+        #self.word_lstm.register_backward_hook(handle_backward_hook)
+
         self.linear1 = torch.nn.Linear(word_hidden, n_tag)
     def forward(self, x, word):
         char = torch.FloatTensor()
@@ -67,7 +102,7 @@ class LSTMTagger(torch.nn.Module):
         x, _ = self.word_lstm(x)
         x = x.squeeze(0)
         x = self.linear1(x)
-        y = F.log_softmax(x)
+        y = F.log_softmax(x, dim=1)
         return y
 
 model = LSTMTagger(
@@ -92,13 +127,13 @@ def make_sentence(x, dic):
     return idx
 
 for epoch in range(1):
-    print('*'*10)
-    print('epoch {}'.format(epoch + 1))
+    #print('*'*10)
+    #print('epoch {}'.format(epoch + 1))
     running_loss = 0
 
     for data in training_data:
         word, tag = data
-        print('word: ', word)
+        #print('word: ', word)
         word_list = make_sentence(word, word_to_idx)
         tag = make_sentence(tag, tag_to_idx)
         '''
@@ -116,13 +151,13 @@ for epoch in range(1):
         loss.backward()
         optimizer.step()
 
-    print('Loss: {}'.format(running_loss/len(data)))
+    #print('Loss: {}'.format(running_loss/len(data)))
 
-print()
+#print()
 input = make_sentence("Everybody ate the apple".split(), word_to_idx)
 '''
 if torch.cuda.is_available():
     input = input.cuda()
 '''
 out = model(input, "Tom ate an apple".split())
-print(out)
+#print(out)

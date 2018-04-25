@@ -33,6 +33,7 @@ def handle_variable_hidden_hook(grade):
 def handle_variable_predict_hook(grade):
     print('***********predict_hook***************')
     print('grade: ',grade)
+    #grade.data[0][0] = 0.0
     # modify
     #grade.data[0] = 0
     print('**************************')
@@ -40,8 +41,9 @@ def handle_variable_predict_hook(grade):
 x = torch.unsqueeze(torch.linspace(-1,1,5),dim=1) # x data(Tensor), shape(100,1)
 #print(x)
 y= x.pow(2)+0.2*torch.rand(x.size())
+#print('y: ', y)
 
-x,y = Variable(x),Variable(y)
+x,y = Variable(x, requires_grad = True),Variable(y)
 
 class Net(torch.nn.Module):
     def __init__(self,n_features,n_hidden,n_output):
@@ -50,18 +52,23 @@ class Net(torch.nn.Module):
         self.predict = torch.nn.Linear(n_hidden,n_output)
 
     def forward(self, x):
-        #self.hidden.register_forward_hook(handle_forward_hook)
-        self.hidden.register_backward_hook(handle_backward_hook)
+        self.hidden.register_forward_hook(handle_forward_hook)
+        #self.hidden.register_backward_hook(handle_backward_hook)
         hidden_layer = F.relu(self.hidden(x))
+        #hidden_layer.register_hook(handle_variable_hidden_hook)
+        #self.hidden.weight.register_hook(handle_variable_predict_hook)
 
         #self.predict.register_forward_hook(handle_forward_hook)
-        self.predict.register_backward_hook(handle_backward_hook)
+        #self.predict.register_backward_hook(handle_backward_hook)
         direct_layer = self.predict(hidden_layer)
+        #self.predict.weight.register_hook(handle_variable_predict_hook)
+        #direct_layer.register_hook(handle_variable_predict_hook)
 
         return direct_layer
 
 net = Net(n_features=1,n_hidden=3,n_output=1)
 #net.register_forward_hook(handle_forward_hook)
+#net.register_backward_hook(handle_backward_hook)
 
 criterion = torch.nn.MSELoss()
 optimizer = torch.optim.SGD(net.parameters(),lr=0.5)

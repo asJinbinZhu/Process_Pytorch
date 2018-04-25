@@ -8,7 +8,7 @@ batch_size = 1
 in_size = 2
 classes_no = 3
 
-input_seq = [Variable(torch.randn(time_steps,batch_size,in_size))]
+input_seq = [Variable(torch.randn(time_steps,batch_size,in_size), requires_grad = True)]
 target = Variable(torch.LongTensor(batch_size).random_(0,classes_no-1))
 #print('input: ', input_seq, 'output: ', target)
 
@@ -49,7 +49,8 @@ class LSTMTagger(torch.nn.Module):
         self.hidden_dim = hidden_dim
         self.layer_nums = layer_nums
 
-        self.lstm = torch.nn.LSTM(input_dim, hidden_dim, layer_nums)
+        self.lstm = torch.nn.LSTM(input_dim, hidden_dim, layer_nums, unroll = True)
+        self.register_backward_hook(handle_backward_hook)
 
     def init_hidden(self):
         h0 = Variable(torch.randn(self.layer_nums, batch_size, classes_no), requires_grad=True)
@@ -63,13 +64,14 @@ class LSTMTagger(torch.nn.Module):
         #self.lstm.register_backward_hook(handle_backward_hook)
         out, (h, c) = self.lstm(x, (h, c))
 
+
         #print('OUT: ', out, 'h: ', h, 'c: ', c)
         #out.register_hook(handle_variable_hidden_hook)
-        # out.register_hook(handle_variable_hidden_hook)
+        #out.register_hook(handle_variable_hidden_hook)
         last_out = out[-1]
         return last_out
 
-model = LSTMTagger(in_size, classes_no, 1)
+model = LSTMTagger(in_size, classes_no, 2)
 #model.register_backward_hook(handle_backward_hook)
 #model.register_forward_hook(handle_forward_hook)
 
@@ -79,6 +81,16 @@ params = model.state_dict()
 for k,v in params.items():
     print(k,v)
 '''
+'''
+def decoder(lstm, input):
+    """ unroll the LSTM Cell, returns the flattened logits"""
+    hs = []
+    h, c = lstm.init_hidden()
+    out, (h, c) = lstm(input)
+    last_out = out[-1]
+    return last_out
+'''
+
 
 criterion = torch.nn.CrossEntropyLoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
@@ -86,6 +98,7 @@ optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
 for epoch in range(1):
     for ipt in input_seq:
         out = model(ipt)
+        #out = decoder(model, ipt)
         loss = criterion(out, target)
         optimizer.zero_grad()
         loss.backward()
