@@ -111,4 +111,42 @@ predict.bias
 1.00000e-02 *
   2.8504
 [torch.FloatTensor of size 1]
+
+
+***********forward_hook***************
+Forward Input (Variable containing:
+-1.0000
+-0.5000
+ 0.0000
+ 0.5000
+ 1.0000
+[torch.FloatTensor of size 5x1]
+,)
+Output Output Variable containing:
+-0.4607  0.0833 -0.2314
+-0.1608 -0.0196  0.0230
+ 0.1390 -0.1224  0.2774
+ 0.4389 -0.2253  0.5317
+ 0.7387 -0.3282  0.7861
+[torch.FloatTensor of size 5x3]
+
+**************************
+***********forward_hook***************
+Forward Input (Variable containing:
+ 0.0000  0.0833  0.0000
+ 0.0000  0.0000  0.0230
+ 0.1390  0.0000  0.2774
+ 0.4389  0.0000  0.5317
+ 0.7387  0.0000  0.7861
+[torch.FloatTensor of size 5x3]
+,)
+Output Output Variable containing:
+-0.0245
+-0.0473
+-0.1005
+-0.1492
+-0.1979
+[torch.FloatTensor of size 5x1]
+
+**************************
 '''
