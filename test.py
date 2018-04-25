@@ -1,4 +1,4 @@
-import random
+import test_child
 
-print(random.random())
+test_child.hi()
 
