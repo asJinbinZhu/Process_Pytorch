@@ -12,7 +12,7 @@ def handle_forward_hook(module,input,output):
     print('***********forward_hook***************')
     #print(module)
     print('Forward Input', input)
-    print('Output Output', output)    #output[0] - out; output[1][0] - h; output[1][1] - c
+    print('Output Output', output)
     print('**************************')
 
 def handle_backward_hook(module,input,output):
@@ -50,10 +50,12 @@ class Net(torch.nn.Module):
         self.predict = torch.nn.Linear(n_hidden,n_output)
 
     def forward(self, x):
-        self.hidden.register_forward_hook(handle_forward_hook)
+        #self.hidden.register_forward_hook(handle_forward_hook)
+        self.hidden.register_backward_hook(handle_backward_hook)
         hidden_layer = F.relu(self.hidden(x))
 
-        self.predict.register_forward_hook(handle_forward_hook)
+        #self.predict.register_forward_hook(handle_forward_hook)
+        self.predict.register_backward_hook(handle_backward_hook)
         direct_layer = self.predict(hidden_layer)
 
         return direct_layer
@@ -148,5 +150,60 @@ Output Output Variable containing:
 -0.1979
 [torch.FloatTensor of size 5x1]
 
+**************************
+
+
+***********backward_hook***************
+Linear(in_features=3, out_features=1, bias=True)
+Grad Input (Variable containing:
+-0.4704
+-0.1413
+-0.0725
+-0.2185
+-0.4815
+[torch.FloatTensor of size 5x1]
+, Variable containing:
+-0.0134 -0.0992  0.1058
+-0.0040 -0.0298  0.0318
+-0.0021 -0.0153  0.0163
+-0.0062 -0.0461  0.0492
+-0.0137 -0.1015  0.1083
+[torch.FloatTensor of size 5x3]
+, Variable containing:
+-0.4617
+-0.0392
+-0.5180
+[torch.FloatTensor of size 3x1]
+)
+Grad Output (Variable containing:
+-0.4704
+-0.1413
+-0.0725
+-0.2185
+-0.4815
+[torch.FloatTensor of size 5x1]
+,)
+**************************
+***********backward_hook***************
+Linear(in_features=1, out_features=3, bias=True)
+Grad Input (Variable containing:
+ 0.0000 -0.0992  0.0000
+ 0.0000  0.0000  0.0318
+-0.0021  0.0000  0.0163
+-0.0062  0.0000  0.0492
+-0.0137  0.0000  0.1083
+[torch.FloatTensor of size 5x3]
+, None, Variable containing:
+-0.0168  0.0992  0.1170
+[torch.FloatTensor of size 1x3]
+)
+Grad Output (Variable containing:
+ 0.0000 -0.0992  0.0000
+ 0.0000  0.0000  0.0318
+-0.0021  0.0000  0.0163
+-0.0062  0.0000  0.0492
+-0.0137  0.0000  0.1083
+[torch.FloatTensor of size 5x3]
+,)
 **************************
 '''
