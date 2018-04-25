@@ -10,7 +10,7 @@ classes_no = 3
 
 input_seq = [Variable(torch.randn(time_steps,batch_size,in_size))]
 target = Variable(torch.LongTensor(batch_size).random_(0,classes_no-1))
-print('input: ', input_seq, 'output: ', target)
+#print('input: ', input_seq, 'output: ', target)
 
 def handle_forward_hook(module,input,output):
     print('***********forward_hook***************')
@@ -58,8 +58,8 @@ class LSTMTagger(torch.nn.Module):
 
     def forward(self, x):
         h, c = self.init_hidden()
-        print('h: ', h, 'c: ', c)
-        #self.lstm.register_forward_hook(handle_forward_hook)
+        #print('h: ', h, 'c: ', c)
+        self.lstm.register_forward_hook(handle_forward_hook)
         #self.lstm.register_backward_hook(handle_backward_hook)
         out, (h, c) = self.lstm(x, (h, c))
 
@@ -72,10 +72,12 @@ class LSTMTagger(torch.nn.Module):
 model = LSTMTagger(in_size, classes_no, 3)
 #model.register_backward_hook(handle_backward_hook)
 
+'''
 print(model)
 params = model.state_dict()
 for k,v in params.items():
     print(k,v)
+'''
 
 criterion = torch.nn.CrossEntropyLoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
@@ -644,5 +646,59 @@ h:  Variable containing:
  -1.5053 -0.4115  0.0479
 [torch.FloatTensor of size 3x1x3]
 
+
+
+***********forward_hook***************
+Forward Input (Variable containing:
+(0 ,.,.) = 
+  0.6614  0.2669
+[torch.FloatTensor of size 1x1x2]
+, (Variable containing:
+(0 ,.,.) = 
+ -0.2939  0.5579  0.9284
+
+(1 ,.,.) = 
+  0.2211  0.3865 -1.0245
+
+(2 ,.,.) = 
+  0.0842  1.6088  1.6084
+[torch.FloatTensor of size 3x1x3]
+, Variable containing:
+(0 ,.,.) = 
+  0.5800  1.4098 -1.9873
+
+(1 ,.,.) = 
+ -1.1417  0.1935 -2.8692
+
+(2 ,.,.) = 
+ -1.5053 -0.4115  0.0479
+[torch.FloatTensor of size 3x1x3]
+))
+Output Output (Variable containing:
+(0 ,.,.) = 
+ -0.6515 -0.2466 -0.4272
+[torch.FloatTensor of size 1x1x3]
+, (Variable containing:
+(0 ,.,.) = 
+  0.0065  0.3834 -0.3917
+
+(1 ,.,.) = 
+ -0.0652 -0.2207 -0.4344
+
+(2 ,.,.) = 
+ -0.6515 -0.2466 -0.4272
+[torch.FloatTensor of size 3x1x3]
+, Variable containing:
+(0 ,.,.) = 
+  0.0163  0.6409 -0.9946
+
+(1 ,.,.) = 
+ -0.1211 -0.4717 -1.4584
+
+(2 ,.,.) = 
+ -1.1762 -0.5134 -0.8025
+[torch.FloatTensor of size 3x1x3]
+))
+**************************
 
 '''
