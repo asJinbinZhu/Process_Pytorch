@@ -10,7 +10,7 @@ classes_no = 3
 
 input_seq = [Variable(torch.randn(time_steps,batch_size,in_size))]
 target = Variable(torch.LongTensor(batch_size).random_(0,classes_no-1))
-print('input: ', input_seq, 'output: ', target)
+#print('input: ', input_seq, 'output: ', target)
 
 def handle_forward_hook(module,input,output):
     print('***********forward_hook***************')
@@ -59,7 +59,7 @@ class LSTMTagger(torch.nn.Module):
     def forward(self, x):
         h, c = self.init_hidden()
         #self.lstm.register_forward_hook(handle_forward_hook)
-        #self.lstm.register_backward_hook(handle_backward_hook)
+        self.lstm.register_backward_hook(handle_backward_hook)
         out, (h, c) = self.lstm(x, (h, c))
 
         #print('OUT: ', out)
@@ -70,12 +70,12 @@ class LSTMTagger(torch.nn.Module):
 
 model = LSTMTagger(in_size, classes_no, 1)
 #model.register_backward_hook(handle_backward_hook)
-
+'''
 print(model)
 params = model.state_dict()
 for k,v in params.items():
     print(k,v)
-
+'''
 
 criterion = torch.nn.CrossEntropyLoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
@@ -156,4 +156,57 @@ lstm.bias_hh_l0
  0.4202
 -0.0856
 [torch.FloatTensor of size 12]
+
+h:  Variable containing:
+(0 ,.,.) = 
+  0.0000  0.0316  0.4501
+[torch.FloatTensor of size 1x1x3]
+ c:  Variable containing:
+(0 ,.,.) = 
+ -0.1132 -0.3688 -1.7254
+[torch.FloatTensor of size 1x1x3]
+
+
+***********forward_hook***************
+Forward Input (Variable containing:
+(0 ,.,.) = 
+  0.6614  0.2669
+[torch.FloatTensor of size 1x1x2]
+, (Variable containing:
+(0 ,.,.) = 
+  0.0000  0.0316  0.4501
+[torch.FloatTensor of size 1x1x3]
+, Variable containing:
+(0 ,.,.) = 
+ -0.1132 -0.3688 -1.7254
+[torch.FloatTensor of size 1x1x3]
+))
+Output Output (Variable containing:
+(0 ,.,.) = 
+ -0.0520  0.0958 -0.4176
+[torch.FloatTensor of size 1x1x3]
+, (Variable containing:
+(0 ,.,.) = 
+ -0.0520  0.0958 -0.4176
+[torch.FloatTensor of size 1x1x3]
+, Variable containing:
+(0 ,.,.) = 
+ -0.1296  0.1391 -1.1395
+[torch.FloatTensor of size 1x1x3]
+))
+**************************
+
+***********backward_hook***************
+LSTM(2, 3)
+Grad Input (Variable containing:
+(0 ,.,.) = 
+  0.3505 -0.5937  0.2432
+[torch.FloatTensor of size 1x1x3]
+,)
+Grad Output (Variable containing:
+(0 ,.,.) = 
+  0.3505 -0.5937  0.2432
+[torch.FloatTensor of size 1x1x3]
+,)
+**************************
 '''
