@@ -10,7 +10,7 @@ classes_no = 3
 
 input_seq = [Variable(torch.randn(time_steps,batch_size,in_size))]
 target = Variable(torch.LongTensor(batch_size).random_(0,classes_no-1))
-#print('input: ', input_seq, 'output: ', target)
+print('input: ', input_seq, 'output: ', target)
 
 def handle_forward_hook(module,input,output):
     print('***********forward_hook***************')
@@ -58,7 +58,7 @@ class LSTMTagger(torch.nn.Module):
 
     def forward(self, x):
         h, c = self.init_hidden()
-        #self.lstm.register_forward_hook(handle_forward_hook)
+        self.lstm.register_forward_hook(handle_forward_hook)
         #self.lstm.register_backward_hook(handle_backward_hook)
         out, (h, c) = self.lstm(x, (h, c))
 
@@ -68,7 +68,7 @@ class LSTMTagger(torch.nn.Module):
         last_out = out[-1]
         return last_out
 
-model = LSTMTagger(in_size, classes_no, 1)
+model = LSTMTagger(in_size, classes_no, 2)
 #model.register_backward_hook(handle_backward_hook)
 '''
 print(model)
@@ -222,4 +222,198 @@ OUT:  Variable containing:
 (0 ,.,.) = 
  -0.1296  0.1391 -1.1395
 [torch.FloatTensor of size 1x1x3]
+'''
+#***************************************num_layers = 2********************************************
+'''
+LSTMTagger(
+  (lstm): LSTM(2, 3, num_layers=2)
+)
+lstm.weight_ih_l0 
+ 0.3462 -0.1188
+ 0.2937  0.0803
+-0.0707  0.1601
+ 0.0285  0.2109
+-0.2250 -0.0421
+-0.0520  0.0837
+-0.0023  0.5047
+ 0.1797 -0.2150
+-0.3487 -0.0968
+-0.2490 -0.1850
+ 0.0276  0.3442
+ 0.3138 -0.5644
+[torch.FloatTensor of size 12x2]
+
+lstm.weight_hh_l0 
+ 0.3579  0.1613  0.5476
+ 0.3811 -0.5260 -0.5489
+-0.2785  0.5070 -0.0962
+ 0.2471 -0.2683  0.5665
+-0.2443  0.4330  0.0068
+-0.3042  0.2968 -0.3065
+ 0.1698 -0.1667 -0.0633
+-0.5551 -0.2753  0.3133
+-0.1403  0.5751  0.4628
+-0.0270 -0.3854  0.3516
+ 0.1792 -0.3732  0.3750
+ 0.3505  0.5120 -0.3236
+[torch.FloatTensor of size 12x3]
+
+lstm.bias_ih_l0 
+-0.0950
+-0.0112
+ 0.0843
+-0.4382
+-0.4097
+ 0.3141
+-0.1354
+ 0.2820
+ 0.0329
+ 0.1896
+ 0.1270
+ 0.2099
+[torch.FloatTensor of size 12]
+
+lstm.bias_hh_l0 
+ 0.2862
+-0.5347
+ 0.2906
+-0.4059
+-0.4356
+ 0.0351
+-0.0984
+ 0.3391
+-0.3344
+-0.5133
+ 0.4202
+-0.0856
+[torch.FloatTensor of size 12]
+
+lstm.weight_ih_l1 
+ 0.3247  0.1856 -0.4329
+ 0.1160  0.1387 -0.3866
+-0.2739  0.1969  0.1034
+-0.2456 -0.1748  0.5288
+-0.1068  0.3255  0.2500
+-0.3732 -0.4910  0.5542
+ 0.0301  0.3957  0.1196
+ 0.1857  0.4313  0.5475
+-0.3831  0.0722  0.4309
+ 0.4183  0.3587 -0.4178
+-0.4158 -0.3492  0.0725
+ 0.5754 -0.3647  0.3077
+[torch.FloatTensor of size 12x3]
+
+lstm.weight_hh_l1 
+-0.3196 -0.5428 -0.1227
+ 0.3327  0.5360 -0.3586
+ 0.1253  0.4982  0.3826
+ 0.3598  0.4103  0.3652
+ 0.1491 -0.3948 -0.4848
+-0.2646 -0.0672 -0.3539
+ 0.2112  0.1787 -0.1307
+ 0.2219  0.1866  0.3525
+ 0.3888 -0.1955  0.5641
+-0.0667 -0.0198 -0.5449
+-0.3716 -0.3373 -0.2469
+ 0.4105 -0.1887 -0.4314
+[torch.FloatTensor of size 12x3]
+
+lstm.bias_ih_l1 
+ 0.2221
+ 0.1848
+ 0.3739
+-0.2988
+ 0.1252
+-0.2102
+-0.1297
+-0.4601
+-0.2631
+-0.1768
+ 0.2469
+ 0.1055
+[torch.FloatTensor of size 12]
+
+lstm.bias_hh_l1 
+ 0.1426
+ 0.5763
+ 0.5627
+ 0.3938
+ 0.0184
+-0.3994
+ 0.4512
+-0.1444
+-0.0467
+-0.4974
+-0.1140
+-0.3724
+[torch.FloatTensor of size 12]
+
+input:  [Variable containing:
+(0 ,.,.) = 
+  0.6614  0.2669
+[torch.FloatTensor of size 1x1x2]
+] output:  Variable containing:
+ 1
+[torch.LongTensor of size 1]
+
+***********forward_hook***************
+Forward Input (Variable containing:
+(0 ,.,.) = 
+  0.6614  0.2669
+[torch.FloatTensor of size 1x1x2]
+, (Variable containing:
+(0 ,.,.) = 
+ -0.9315 -1.8460  0.5781
+
+(1 ,.,.) = 
+ -0.9483  0.0943  0.6352
+[torch.FloatTensor of size 2x1x3]
+, Variable containing:
+(0 ,.,.) = 
+ -0.6054 -0.2838  1.0525
+
+(1 ,.,.) = 
+  0.2865  1.4871  1.3805
+[torch.FloatTensor of size 2x1x3]
+))
+Output Output (Variable containing:
+(0 ,.,.) = 
+  0.0716  0.2260  0.0670
+[torch.FloatTensor of size 1x1x3]
+, (Variable containing:
+(0 ,.,.) = 
+ -0.1577  0.3191  0.0333
+
+(1 ,.,.) = 
+  0.0716  0.2260  0.0670
+[torch.FloatTensor of size 2x1x3]
+, Variable containing:
+(0 ,.,.) = 
+ -0.2696  0.4214  0.1538
+
+(1 ,.,.) = 
+  0.2575  0.4253  0.2852
+[torch.FloatTensor of size 2x1x3]
+))
+**************************
+OUT:  Variable containing:
+(0 ,.,.) = 
+  0.0716  0.2260  0.0670
+[torch.FloatTensor of size 1x1x3]
+ h:  Variable containing:
+(0 ,.,.) = 
+ -0.1577  0.3191  0.0333
+
+(1 ,.,.) = 
+  0.0716  0.2260  0.0670
+[torch.FloatTensor of size 2x1x3]
+ c:  Variable containing:
+(0 ,.,.) = 
+ -0.2696  0.4214  0.1538
+
+(1 ,.,.) = 
+  0.2575  0.4253  0.2852
+[torch.FloatTensor of size 2x1x3]
+
+
 '''
