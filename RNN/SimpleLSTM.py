@@ -49,7 +49,7 @@ class LSTMTagger(torch.nn.Module):
         self.hidden_dim = hidden_dim
         self.layer_nums = layer_nums
 
-        self.lstm = torch.nn.LSTM(input_dim, hidden_dim, layer_nums, unroll = True)
+        self.lstm = torch.nn.LSTM(input_dim, hidden_dim, layer_nums)
         self.register_backward_hook(handle_backward_hook)
 
     def init_hidden(self):
