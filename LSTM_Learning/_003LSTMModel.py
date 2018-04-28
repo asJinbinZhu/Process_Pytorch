@@ -13,7 +13,7 @@ print(model)
 inputs = Variable(torch.randn(time_steps, batch_size, in_size))
 outputs, _ = model(inputs)
 last_output = outputs[-1]
-print(last_output)
+print(outputs)
 
 criterion = torch.nn.CrossEntropyLoss()
 target = Variable(torch.LongTensor(batch_size).random_(0, classes_NO-1))

@@ -34,7 +34,7 @@ time_steps = 2
 batch_size = 3
 
 # training data
-input = Variable(torch.rand(time_steps, batch_size, input_size))
+inputs = Variable(torch.rand(time_steps, batch_size, input_size))
 target = Variable(torch.LongTensor(batch_size).random_(0, hidden_size-1))
 
 
@@ -58,21 +58,23 @@ for k,v in params.items():
 
 # forward
 outputs = []
-hidden = init_hidden()
 for i in range(nLayers):
     #if i != 0:
         #input = F.dropout(input, p=0.2, training=True)
     outputs.clear()
-    output, (h, c) = model[i](input, hidden)
-    if i == 0:
-        c[0,0,0]=100000
-    outputs.append(output)
-    input = output
-    hidden = (h, c)
+    hidden = init_hidden()
+    for input in inputs:
+        input = input.unsqueeze(0)
+        output, (h, c) = model[i](input, hidden)
+        #if i == 0:
+            #c[0, 0, 0] = 0.0
+        hidden = (h, c)
+        outputs.append(output)
 
+    inputs = (outputs[0].squeeze(0), outputs[1].squeeze(0))
+    print(outputs)
 
 last_output = output[-1]
-print('last_output', last_output)
 
 # training
 criterion = torch.nn.CrossEntropyLoss()
