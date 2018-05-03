@@ -10,6 +10,9 @@ num_layers = 2
 model = torch.nn.LSTM(in_size, classes_NO, num_layers=num_layers)
 print(model)
 
+
+
+
 inputs = Variable(torch.randn(time_steps, batch_size, in_size))
 outputs, _ = model(inputs)
 last_output = outputs[-1]

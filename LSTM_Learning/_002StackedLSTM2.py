@@ -62,6 +62,8 @@ for i in range(nLayers):
     #if i != 0:
         #input = F.dropout(input, p=0.2, training=True)
     outputs.clear()
+    if i == 1:
+        print(inputs)
     hidden = init_hidden()
     for input in inputs:
         input = input.unsqueeze(0)
@@ -70,9 +72,13 @@ for i in range(nLayers):
             #c[0, 0, 0] = 0.0
         hidden = (h, c)
         outputs.append(output)
+        #print(outputs)
 
     inputs = (outputs[0].squeeze(0), outputs[1].squeeze(0))
-    print(outputs)
+
+
+
+    #print(outputs)
 
 last_output = output[-1]
 
